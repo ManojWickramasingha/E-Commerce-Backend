@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="330e40b7-c35b-47aa-a685-67bcd8d7e34b" name="Changes" comment="Create new Product Detail API">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/entity/ImageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/dto/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/dto/ProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/entity/Product.java" afterDir="false" />
-    </list>
+    <list default="true" id="330e40b7-c35b-47aa-a685-67bcd8d7e34b" name="Changes" comment="Create new Product Image Upload part added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754681073181</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Create new Product Image Upload part added">
+      <option name="closed" value="true" />
+      <created>1754723552393</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1754723552393</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,7 +215,8 @@
     <MESSAGE value="Pom inheritance a java project . Is a relationship springboot project" />
     <MESSAGE value="Authenticate and Authorization using spring security and JWT token" />
     <MESSAGE value="Create new Product Detail API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create new Product Detail API" />
+    <MESSAGE value="Create new Product Image Upload part added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create new Product Image Upload part added" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
