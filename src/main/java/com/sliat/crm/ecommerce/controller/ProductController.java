@@ -1,26 +1,57 @@
 package com.sliat.crm.ecommerce.controller;
 
 import com.sliat.crm.ecommerce.dto.ProductDto;
+import com.sliat.crm.ecommerce.entity.ImageModel;
 import com.sliat.crm.ecommerce.service.ProductService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/admin/product")
 @CrossOrigin
+@Slf4j
 public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @PostMapping
-    public ResponseEntity<ProductDto> createNewProduct(@RequestBody ProductDto productData) {
-        ProductDto product = productService.createNewProduct(productData);
-        if (product != null)
-            return ResponseEntity.ok(product);
+    @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity<ProductDto> createNewProduct(@RequestPart("product") ProductDto productData, @RequestPart("images") MultipartFile[] file) {
+        try {
+            Set<ImageModel> imageModels = uploadImages(file);
+            productData.setImages(imageModels);
+            ProductDto product = productService.createNewProduct(productData);
+            if (product != null)
+                return ResponseEntity.ok(product);
+
+
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+    }
+
+    private Set<ImageModel> uploadImages(MultipartFile[] file) throws Exception {
+        Set<ImageModel> images = new HashSet<>();
+
+        for (MultipartFile f : file) {
+            ImageModel imageModel =
+                    new ImageModel(f.getOriginalFilename()
+                            , f.getContentType(),
+                            f.getBytes());
+
+            images.add(imageModel);
+        }
+
+        return images;
     }
 
 }
