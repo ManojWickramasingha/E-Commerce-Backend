@@ -8,6 +8,9 @@ import com.sliat.crm.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -22,5 +25,16 @@ public class ProductServiceImpl implements ProductService {
         Product product = mapper.convertValue(productData, Product.class);
         Product saveProduct = productDao.save(product);
         return mapper.convertValue(saveProduct, ProductDto.class);
+    }
+
+    @Override
+    public List<ProductDto> getAllProduct() {
+        List<ProductDto> productDtoList = new ArrayList<>();
+        productDao.findAll().forEach(product -> {
+            if (product instanceof Product)
+                productDtoList.add(mapper.convertValue(product, ProductDto.class));
+        });
+
+        return productDtoList;
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -54,6 +55,15 @@ public class ProductController {
         }
 
         return images;
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<ProductDto>> getAllProduct() {
+        List<ProductDto> allProduct = productService.getAllProduct();
+        if (allProduct != null)
+            return ResponseEntity.ok(allProduct);
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
 
 }
