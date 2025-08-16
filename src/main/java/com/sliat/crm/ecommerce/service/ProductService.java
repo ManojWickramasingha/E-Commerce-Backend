@@ -9,4 +9,6 @@ public interface ProductService {
     ProductDto createNewProduct(ProductDto productData);
 
     List<ProductDto> getAllProduct();
+
+    void deleteProductDetails(Integer id);
 }

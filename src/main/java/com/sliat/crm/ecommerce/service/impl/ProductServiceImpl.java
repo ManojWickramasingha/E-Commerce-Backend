@@ -37,4 +37,9 @@ public class ProductServiceImpl implements ProductService {
 
         return productDtoList;
     }
+
+    @Override
+    public void deleteProductDetails(Integer id) {
+        productDao.deleteById(id);
+    }
 }
