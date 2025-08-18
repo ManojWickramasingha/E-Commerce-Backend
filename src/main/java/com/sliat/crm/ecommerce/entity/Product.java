@@ -27,5 +27,5 @@ public class Product {
                     @JoinColumn(name = "image_id")
             })
 
-    private Set<ImageModel> images;
+    private Set<ImageModel> productImages;
 }

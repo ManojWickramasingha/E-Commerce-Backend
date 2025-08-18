@@ -11,4 +11,6 @@ public interface ProductService {
     List<ProductDto> getAllProduct();
 
     void deleteProductDetails(Integer id);
+
+    ProductDto getProductDetailById(Integer productId);
 }

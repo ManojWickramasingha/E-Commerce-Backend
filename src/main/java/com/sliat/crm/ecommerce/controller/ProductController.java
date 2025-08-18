@@ -29,7 +29,7 @@ public class ProductController {
     public ResponseEntity<ProductDto> createNewProduct(@RequestPart("product") ProductDto productData, @RequestPart("images") MultipartFile[] file) {
         try {
             Set<ImageModel> imageModels = uploadImages(file);
-            productData.setImages(imageModels);
+            productData.setProductImages(imageModels);
             ProductDto product = productService.createNewProduct(productData);
             if (product != null)
                 return ResponseEntity.ok(product);
@@ -69,6 +69,15 @@ public class ProductController {
     @DeleteMapping("/deleteProductDetail/{productId}")
     public void deleteProductDetails(@PathVariable("productId") Integer id) {
         productService.deleteProductDetails(id);
+    }
+
+    @GetMapping("getProductDetailById/{productId}")
+    public ProductDto getProductDetailById(@PathVariable("productId") Integer productId) {
+        ProductDto productDto = productService.getProductDetailById(productId);
+        if (productDto != null)
+            return productDto;
+
+        return null;
     }
 
 }

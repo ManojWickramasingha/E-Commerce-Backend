@@ -14,5 +14,5 @@ public class ProductDto {
     private String description;
     private Double discountedPrice;
     private Double actualPrice;
-    private Set<ImageModel> images;
+    private Set<ImageModel> productImages;
 }

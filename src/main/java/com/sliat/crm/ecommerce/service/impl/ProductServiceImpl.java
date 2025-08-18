@@ -42,4 +42,13 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProductDetails(Integer id) {
         productDao.deleteById(id);
     }
+
+    @Override
+    public ProductDto getProductDetailById(Integer productId) {
+        Product product = productDao.findById(productId).orElse(null);
+        if (product != null)
+            return mapper.convertValue(product, ProductDto.class);
+
+        return null;
+    }
 }
