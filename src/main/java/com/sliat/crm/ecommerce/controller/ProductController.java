@@ -57,6 +57,7 @@ public class ProductController {
         return images;
     }
 
+    @PreAuthorize("hasRole('admin')")
     @GetMapping("/all")
     public ResponseEntity<List<ProductDto>> getAllProduct() {
         List<ProductDto> allProduct = productService.getAllProduct();
@@ -66,11 +67,13 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
 
+    @PreAuthorize("hasRole('admin')")
     @DeleteMapping("/deleteProductDetail/{productId}")
     public void deleteProductDetails(@PathVariable("productId") Integer id) {
         productService.deleteProductDetails(id);
     }
 
+    @PreAuthorize("hasRole('admin')")
     @GetMapping("getProductDetailById/{productId}")
     public ProductDto getProductDetailById(@PathVariable("productId") Integer productId) {
         ProductDto productDto = productService.getProductDetailById(productId);
