@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="330e40b7-c35b-47aa-a685-67bcd8d7e34b" name="Changes" comment="Get Product Details using Filter ProductId implement API">
+    <list default="true" id="330e40b7-c35b-47aa-a685-67bcd8d7e34b" name="Changes" comment="Admin Product API'S Security enable completed and finished product service Feature.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/configuration/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/configuration/WebSecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/ProductController.java" afterDir="false" />
@@ -186,7 +186,23 @@
       <option name="project" value="LOCAL" />
       <updated>1755516731115</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Admin Product API'S Security enable completed and finished product service Feature.">
+      <option name="closed" value="true" />
+      <created>1755677153350</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1755677153350</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Admin Product API'S Security enable completed and finished product service Feature.">
+      <option name="closed" value="true" />
+      <created>1755677219356</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1755677219356</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -264,7 +280,8 @@
     <MESSAGE value="get All product API implement without security" />
     <MESSAGE value="Delete product details API implement for hard delete" />
     <MESSAGE value="Get Product Details using Filter ProductId implement API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get Product Details using Filter ProductId implement API" />
+    <MESSAGE value="Admin Product API'S Security enable completed and finished product service Feature." />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin Product API'S Security enable completed and finished product service Feature." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

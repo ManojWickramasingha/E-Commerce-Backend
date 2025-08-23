@@ -57,7 +57,7 @@ public class ProductController {
         return images;
     }
 
-    @PreAuthorize("hasRole('admin')")
+
     @GetMapping("/all")
     public ResponseEntity<List<ProductDto>> getAllProduct() {
         List<ProductDto> allProduct = productService.getAllProduct();
