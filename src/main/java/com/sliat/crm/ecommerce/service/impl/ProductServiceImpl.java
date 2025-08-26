@@ -51,4 +51,21 @@ public class ProductServiceImpl implements ProductService {
 
         return null;
     }
+
+    @Override
+    public List<ProductDto> getProductDetail(boolean isSingleProductDetail, Integer productId) {
+        if (isSingleProductDetail) {
+            List<ProductDto> list = new ArrayList<>();
+            Product product = productDao.findById(productId).orElse(null);
+            if (product != null)
+                list.add(mapper.convertValue(product, ProductDto.class));
+
+            return list;
+        } else {
+            //check out entire cart
+            //TODO
+        }
+
+        return new ArrayList<>();
+    }
 }

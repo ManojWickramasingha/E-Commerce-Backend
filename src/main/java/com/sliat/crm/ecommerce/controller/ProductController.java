@@ -73,7 +73,7 @@ public class ProductController {
         productService.deleteProductDetails(id);
     }
 
-    @PreAuthorize("hasRole('admin')")
+
     @GetMapping("getProductDetailById/{productId}")
     public ProductDto getProductDetailById(@PathVariable("productId") Integer productId) {
         ProductDto productDto = productService.getProductDetailById(productId);
@@ -82,5 +82,16 @@ public class ProductController {
 
         return null;
     }
+
+    @PreAuthorize("hasRole('user')")
+    @GetMapping("/getProductDetail/{isSingleProductCheckOut}/{productId}")
+    public ResponseEntity<List<ProductDto>> getProductDetail(@PathVariable(name = "isSingleProductCheckOut") boolean isSingleProductCheckOut, @PathVariable(name = "productId") Integer productId) {
+        List<ProductDto> list = productService.getProductDetail(isSingleProductCheckOut, productId);
+        if (!list.isEmpty())
+            return ResponseEntity.ok(list);
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+    }
+
 
 }

@@ -13,4 +13,6 @@ public interface ProductService {
     void deleteProductDetails(Integer id);
 
     ProductDto getProductDetailById(Integer productId);
+
+    List<ProductDto> getProductDetail(boolean isSingleProductDetail, Integer productId);
 }
