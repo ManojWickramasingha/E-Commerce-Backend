@@ -1,27 +1,21 @@
-package com.sliat.crm.ecommerce.entity;
+package com.sliat.crm.ecommerce.dto;
 
+import com.sliat.crm.ecommerce.entity.Product;
+import com.sliat.crm.ecommerce.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
-public class OrderDetail {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+public class OrderDetailDto {
     private String fullName;
     private String fullOrder;
     private String contactNumber;
     private String alternateContactNumber;
     private String status;
     private Double amount;
-    @OneToOne
-    private Product product;
-    @OneToOne
     private User user;
+    private Product product;
 }

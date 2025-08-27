@@ -7,7 +7,7 @@ import com.sliat.crm.ecommerce.dto.UserDto;
 import com.sliat.crm.ecommerce.entity.Role;
 import com.sliat.crm.ecommerce.entity.User;
 import com.sliat.crm.ecommerce.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,17 +15,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserDao userDao;
-    @Autowired
-    private ObjectMapper mapper;
-    @Autowired
-    private RoleDao roleDao;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final UserDao userDao;
+
+    private final ObjectMapper mapper;
+
+    private final RoleDao roleDao;
+
+
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserDto registerUser(UserDto userData) {

@@ -2,7 +2,7 @@ package com.sliat.crm.ecommerce.controller;
 
 import com.sliat.crm.ecommerce.dto.OrderInputDto;
 import com.sliat.crm.ecommerce.service.OrderDetailService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
+@RequiredArgsConstructor
 public class OrderDetailController {
 
-    @Autowired
-    private OrderDetailService orderDetailService;
+
+    private final OrderDetailService orderDetailService;
 
     @PreAuthorize("hasRole('user')")
     @PostMapping("/placeOrder")

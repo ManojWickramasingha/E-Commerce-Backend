@@ -8,6 +8,8 @@ import com.sliat.crm.ecommerce.dto.UserDto;
 import com.sliat.crm.ecommerce.entity.User;
 import com.sliat.crm.ecommerce.service.JwtService;
 import com.sliat.crm.ecommerce.util.JwtUtil;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -20,23 +22,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-
 @Service
-public class JwtServiceImpl implements JwtService {
-    @Autowired
-    private UserDao userDao;
+@RequiredArgsConstructor
+@Slf4j
 
+public class JwtServiceImpl implements JwtService {
+
+    private final UserDao userDao;
     @Autowired
     private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private JwtService jwtService;
-
-    @Autowired
-    private ObjectMapper mapper;
-
-    @Autowired
-    private JwtUtil jwtUtil;
+    private final ObjectMapper mapper;
+    private final JwtUtil jwtUtil;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -45,7 +41,7 @@ public class JwtServiceImpl implements JwtService {
             return new org.springframework.security.core.userdetails.User(
                     user.getUsername(),
                     user.getPassword(),
-                    getAuthoroties(user)
+                    getAuthorities(user)
             );
         } else {
             throw new UsernameNotFoundException("username is invalid");
@@ -53,11 +49,10 @@ public class JwtServiceImpl implements JwtService {
 
     }
 
-    private Set getAuthoroties(User user) {
-        Set authorities = new HashSet();
-        user.getRoles().forEach(role -> {
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
-        });
+    private Set<SimpleGrantedAuthority> getAuthorities(User user) {
+        Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+        user.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()))
+        );
 
         return authorities;
     }
@@ -67,7 +62,7 @@ public class JwtServiceImpl implements JwtService {
         String username = jwtRequest.getUsername();
         String userPassword = jwtRequest.getUserPassword();
         authenticate(username, userPassword);
-        UserDetails userDetails = jwtService.loadUserByUsername(username);
+        UserDetails userDetails = loadUserByUsername(username);
         String newGenerateToken = jwtUtil.generateJwtToken(userDetails);
 
         User user = userDao.findById(username).orElse(null);
@@ -83,9 +78,9 @@ public class JwtServiceImpl implements JwtService {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (DisabledException e) {
-            System.out.println("DISABLE_USER" + e);
+            log.error("DISABLE_USER" + e);
         } catch (BadCredentialsException e) {
-            System.out.println("BAD CREDENTIAL_" + e);
+            log.error("BAD CREDENTIAL_" + e);
         }
 
     }

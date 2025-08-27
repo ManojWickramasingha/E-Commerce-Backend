@@ -5,20 +5,21 @@ import com.sliat.crm.ecommerce.dao.ProductDao;
 import com.sliat.crm.ecommerce.dto.ProductDto;
 import com.sliat.crm.ecommerce.entity.Product;
 import com.sliat.crm.ecommerce.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
-    private ObjectMapper mapper;
 
-    @Autowired
-    private ProductDao productDao;
+    private final ObjectMapper mapper;
+
+
+    private final ProductDao productDao;
 
     @Override
     public ProductDto createNewProduct(ProductDto productData) {
@@ -39,8 +40,16 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void deleteProductDetails(Integer id) {
-        productDao.deleteById(id);
+    public boolean deleteProductDetails(Integer id) {
+        if (productDao.findById(id).isPresent()) {
+            productDao.deleteById(id);
+            return true;
+        }
+
+        return false;
+
+
+
     }
 
     @Override
