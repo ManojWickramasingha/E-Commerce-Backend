@@ -6,6 +6,8 @@ import com.sliat.crm.ecommerce.dto.ProductDto;
 import com.sliat.crm.ecommerce.entity.Product;
 import com.sliat.crm.ecommerce.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,9 +31,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDto> getAllProduct() {
+    public List<ProductDto> getAllProduct(Integer pageNumber) {
         List<ProductDto> productDtoList = new ArrayList<>();
-        productDao.findAll().forEach(product -> {
+        Pageable pageRequest = PageRequest.of(pageNumber, 1);
+        productDao.findAll(pageRequest).forEach(product -> {
             if (product instanceof Product)
                 productDtoList.add(mapper.convertValue(product, ProductDto.class));
         });

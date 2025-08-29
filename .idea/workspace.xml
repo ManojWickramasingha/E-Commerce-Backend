@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="330e40b7-c35b-47aa-a685-67bcd8d7e34b" name="Changes" comment="User access get Product detail API implement">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/dto/OrderDetailDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/exception/GlobalExceptionHandler.java" afterDir="false" />
+    <list default="true" id="330e40b7-c35b-47aa-a685-67bcd8d7e34b" name="Changes" comment="Sonar issue fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/configuration/CorsConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/configuration/CorsConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/configuration/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/configuration/JwtRequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/configuration/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/configuration/WebSecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/JwtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/JwtController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/OrderDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/OrderDetailController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/entity/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/entity/OrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/dao/ProductDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/JwtServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/JwtServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/OrderDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/OrderDetailServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/RoleServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/util/JwtUtil.java" afterDir="false" />
     </list>
@@ -291,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756216017076</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Sonar issue fixed">
+      <option name="closed" value="true" />
+      <created>1756285385372</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1756285385372</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -374,7 +374,8 @@
     <MESSAGE value="product entity table change description length" />
     <MESSAGE value="Place Order API implement" />
     <MESSAGE value="User access get Product detail API implement" />
-    <option name="LAST_COMMIT_MESSAGE" value="User access get Product detail API implement" />
+    <MESSAGE value="Sonar issue fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sonar issue fixed" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

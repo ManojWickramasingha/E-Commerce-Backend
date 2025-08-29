@@ -33,10 +33,19 @@ public class UserServiceImpl implements UserService {
         User user = mapper.convertValue(userData, User.class);
         Set<Role> roles = new HashSet<>();
         Role role = roleDao.findById("user").orElse(null);
-        roles.add(role);
+        if (role != null)
+            roles.add(role);
+
         user.setRoles(roles);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        String password = getEncodePassword(user.getPassword());
+        user.setPassword(password);
         User saveUser = userDao.save(user);
         return mapper.convertValue(saveUser, UserDto.class);
     }
+
+    private String getEncodePassword(String password) {
+        return passwordEncoder.encode(password);
+    }
 }
+
+

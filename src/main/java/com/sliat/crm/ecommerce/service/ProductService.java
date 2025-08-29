@@ -8,7 +8,7 @@ public interface ProductService {
 
     ProductDto createNewProduct(ProductDto productData);
 
-    List<ProductDto> getAllProduct();
+    List<ProductDto> getAllProduct(Integer pageNumber);
 
     boolean deleteProductDetails(Integer id);
 

@@ -49,6 +49,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 log.debug("unable to get Token");
             } catch (ExpiredJwtException e) {
                 log.debug(" Jwt token has expired.");
+            } catch (Exception ex) {
+                log.error(ex.getMessage());
             }
 
 

@@ -60,8 +60,8 @@ public class ProductController {
 
 
     @GetMapping("/all")
-    public ResponseEntity<List<ProductDto>> getAllProduct() {
-        List<ProductDto> allProduct = productService.getAllProduct();
+    public ResponseEntity<List<ProductDto>> getAllProduct(@RequestParam(defaultValue = "0") Integer pageNumber) {
+        List<ProductDto> allProduct = productService.getAllProduct(pageNumber);
         if (allProduct != null)
             return ResponseEntity.ok(allProduct);
 
