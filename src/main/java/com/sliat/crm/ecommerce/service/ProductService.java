@@ -8,6 +8,7 @@ public interface ProductService {
 
     ProductDto createNewProduct(ProductDto productData);
 
+
     List<ProductDto> getAllProduct(Integer pageNumber, String searchKey);
 
     boolean deleteProductDetails(Integer id);
@@ -15,4 +16,5 @@ public interface ProductService {
     ProductDto getProductDetailById(Integer productId);
 
     List<ProductDto> getProductDetail(boolean isSingleProductDetail, Integer productId);
+
 }

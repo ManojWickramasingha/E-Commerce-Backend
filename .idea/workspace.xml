@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="330e40b7-c35b-47aa-a685-67bcd8d7e34b" name="Changes" comment="Home Pagination implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/dao/ProductDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/ProductServiceImpl.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +67,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
@@ -74,8 +77,6 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "git-widget-placeholder": "Feature/search__product",
-    "kotlin-language-version-configured": "true"
-  }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -198,6 +199,7 @@
       <option name="project" value="LOCAL" />
       <updated>1755516731115</updated>
     </task>
+
     <task id="LOCAL-00015" summary="Admin Product API'S Security enable completed and finished product service Feature.">
       <option name="closed" value="true" />
       <created>1755677153350</created>
@@ -295,6 +297,7 @@
       <updated>1756461993476</updated>
     </task>
     <option name="localTasksCounter" value="27" />
+
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -372,6 +375,7 @@
     <MESSAGE value="get All product API implement without security" />
     <MESSAGE value="Delete product details API implement for hard delete" />
     <MESSAGE value="Get Product Details using Filter ProductId implement API" />
+
     <MESSAGE value="Admin Product API'S Security enable completed and finished product service Feature." />
     <MESSAGE value="get Product all API's disabled security" />
     <MESSAGE value="product entity table change description length" />
@@ -380,6 +384,7 @@
     <MESSAGE value="Sonar issue fixed" />
     <MESSAGE value="Home Pagination implemented" />
     <option name="LAST_COMMIT_MESSAGE" value="Home Pagination implemented" />
+
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
