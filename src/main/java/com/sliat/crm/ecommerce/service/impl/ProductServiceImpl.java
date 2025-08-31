@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
@@ -31,14 +32,24 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDto> getAllProduct(Integer pageNumber) {
+    public List<ProductDto> getAllProduct(Integer pageNumber, String searchKey) {
         List<ProductDto> productDtoList = new ArrayList<>();
-        Pageable pageRequest = PageRequest.of(pageNumber, 1);
-        productDao.findAll(pageRequest).forEach(product -> {
-            if (product instanceof Product)
-                productDtoList.add(mapper.convertValue(product, ProductDto.class));
-        });
+        Pageable pageRequest = PageRequest.of(pageNumber, 10);
+        if (searchKey.equals("")) {
+            productDao.findAll(pageRequest).forEach(product -> {
+                if (product instanceof Product)
+                    productDtoList.add(mapper.convertValue(product, ProductDto.class));
+            });
+        } else {
 
+            List<Product> products = productDao.findByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(searchKey, searchKey, pageRequest);
+            if (products == null)
+                return productDtoList;
+            products.forEach(product ->
+                    productDtoList.add(mapper.convertValue(product, ProductDto.class))
+            );
+
+        }
         return productDtoList;
     }
 
