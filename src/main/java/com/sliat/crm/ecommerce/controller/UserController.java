@@ -2,7 +2,7 @@ package com.sliat.crm.ecommerce.controller;
 
 import com.sliat.crm.ecommerce.dto.UserDto;
 import com.sliat.crm.ecommerce.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/user")
 @CrossOrigin
+
+@RequiredArgsConstructor
+
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+
+    private final UserService userService;
 
     @PostMapping
     public ResponseEntity<UserDto> registerUser(@RequestBody UserDto userData) {
@@ -34,6 +37,6 @@ public class UserController {
     @GetMapping("forAdmin")
     @PreAuthorize("hasRole('admin')")
     public String forAdmin() {
-        return "Admin acess only";
+        return "Admin access only";
     }
 }

@@ -3,6 +3,8 @@ package com.sliat.crm.ecommerce.configuration;
 import com.sliat.crm.ecommerce.service.JwtService;
 import com.sliat.crm.ecommerce.util.JwtUtil;
 import io.jsonwebtoken.ExpiredJwtException;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,12 +19,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 @Component
+@Slf4j
+@RequiredArgsConstructor
+
 public class JwtRequestFilter extends OncePerRequestFilter {
-    @Autowired
-    private JwtUtil jwtUtil;
+
+    private final JwtUtil jwtUtil;
     @Autowired
     private JwtService jwtService;
+    private String currentUser = "";
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest,
@@ -37,15 +44,18 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             jwtToken = authorization.substring(7);
             try {
                 username = jwtUtil.getTokenFromUsername(jwtToken);
+                currentUser = username;
             } catch (IllegalArgumentException e) {
-                System.out.println("unable to get Token");
+                log.debug("unable to get Token");
             } catch (ExpiredJwtException e) {
-                System.out.println(" Jwt token has expired.");
+                log.debug(" Jwt token has expired.");
+            } catch (Exception ex) {
+                log.error(ex.getMessage());
             }
 
 
         } else {
-            System.out.println("This Token does not exist Bearer");
+            log.info("This Token does not exist Bearer");
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
@@ -66,5 +76,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         filterChain.doFilter(httpServletRequest, httpServletResponse);
 
+    }
+
+    public String getCurrentUser() {
+        return currentUser;
     }
 }
