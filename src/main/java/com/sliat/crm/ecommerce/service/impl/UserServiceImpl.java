@@ -48,6 +48,7 @@ public class UserServiceImpl implements UserService {
         String password = getEncodePassword(user.getPassword());
         user.setPassword(password);
 
+
         User saveUser = userDao.save(user);
         return mapper.convertValue(saveUser, UserDto.class);
     }

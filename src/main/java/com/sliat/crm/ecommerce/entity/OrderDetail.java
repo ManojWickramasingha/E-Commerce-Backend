@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @AllArgsConstructor
+
 public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,5 +26,6 @@ public class OrderDetail {
     private Product product;
     @OneToOne
     private User user;
+
 
 }
