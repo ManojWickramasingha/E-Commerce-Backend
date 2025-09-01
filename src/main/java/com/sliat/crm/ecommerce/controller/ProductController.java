@@ -3,8 +3,6 @@ package com.sliat.crm.ecommerce.controller;
 import com.sliat.crm.ecommerce.dto.ProductDto;
 import com.sliat.crm.ecommerce.entity.ImageModel;
 import com.sliat.crm.ecommerce.service.ProductService;
-
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -23,13 +21,10 @@ import java.util.Set;
 @CrossOrigin
 @Slf4j
 
-
 @RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
-
-
 
 
     @PreAuthorize("hasRole('admin')")
@@ -67,6 +62,7 @@ public class ProductController {
 
 
 
+
     @GetMapping("/all")
     public ResponseEntity<List<ProductDto>> getAllProduct(@RequestParam(defaultValue = "0") Integer pageNumber, @RequestParam(defaultValue = "") String searchKey) {
         List<ProductDto> allProduct = productService.getAllProduct(pageNumber, searchKey);
@@ -88,8 +84,6 @@ public class ProductController {
 
         return ResponseEntity.badRequest().body(false);
     }
-
-
 
 
     @GetMapping("getProductDetailById/{productId}")
