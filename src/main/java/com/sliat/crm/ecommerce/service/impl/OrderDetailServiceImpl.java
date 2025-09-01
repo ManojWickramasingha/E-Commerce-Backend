@@ -38,6 +38,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     public void placeOrder(OrderInputDto orderInput) {
 
 
+
         String currentUser = jwtRequestFilter.getCurrentUser();
         List<OrderProductQuantity> orderProductQuantityList = orderInput.getProductQuantityList();
         Optional<User> opUser = userDao.findById(currentUser);
@@ -60,10 +61,12 @@ public class OrderDetailServiceImpl implements OrderDetailService {
                         orderInput.getAlternateContactNumber(),
                         PLACE_ORDER,
                         product.getActualPrice() * o.getQuantity(),
+
                         user,
                         product
                 );
                 OrderDetail orderDetail = mapper.convertValue(orderDetailDto, OrderDetail.class);
+
                 orderDetailDao.save(orderDetail);
             }
         }

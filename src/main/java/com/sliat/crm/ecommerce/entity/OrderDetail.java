@@ -1,5 +1,6 @@
 package com.sliat.crm.ecommerce.entity;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,4 +25,5 @@ public class OrderDetail {
     private Product product;
     @OneToOne
     private User user;
+
 }

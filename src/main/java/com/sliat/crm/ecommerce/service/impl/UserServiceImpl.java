@@ -26,19 +26,28 @@ public class UserServiceImpl implements UserService {
     private final RoleDao roleDao;
 
 
-    private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+  
+
 
     @Override
     public UserDto registerUser(UserDto userData) {
         User user = mapper.convertValue(userData, User.class);
         Set<Role> roles = new HashSet<>();
+
         Role role = roleDao.findById("user").orElse(null);
         if (role != null)
             roles.add(role);
 
         user.setRoles(roles);
+
+
         String password = getEncodePassword(user.getPassword());
         user.setPassword(password);
+
         User saveUser = userDao.save(user);
         return mapper.convertValue(saveUser, UserDto.class);
     }
