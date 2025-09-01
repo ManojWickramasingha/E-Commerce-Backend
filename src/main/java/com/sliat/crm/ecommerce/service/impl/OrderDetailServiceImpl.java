@@ -6,7 +6,6 @@ import com.sliat.crm.ecommerce.dao.OrderDetailDao;
 import com.sliat.crm.ecommerce.dao.ProductDao;
 import com.sliat.crm.ecommerce.dao.UserDao;
 import com.sliat.crm.ecommerce.dto.OrderDetailDto;
-
 import com.sliat.crm.ecommerce.dto.OrderInputDto;
 import com.sliat.crm.ecommerce.dto.OrderProductQuantity;
 import com.sliat.crm.ecommerce.entity.OrderDetail;
@@ -34,7 +33,6 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     private final OrderDetailDao orderDetailDao;
 
     private final JwtRequestFilter jwtRequestFilter;
-
 
     @Override
     public void placeOrder(OrderInputDto orderInput) {

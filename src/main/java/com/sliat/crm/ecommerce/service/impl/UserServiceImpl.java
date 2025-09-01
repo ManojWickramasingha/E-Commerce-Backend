@@ -8,8 +8,6 @@ import com.sliat.crm.ecommerce.entity.Role;
 import com.sliat.crm.ecommerce.entity.User;
 import com.sliat.crm.ecommerce.service.UserService;
 import lombok.RequiredArgsConstructor;
-
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

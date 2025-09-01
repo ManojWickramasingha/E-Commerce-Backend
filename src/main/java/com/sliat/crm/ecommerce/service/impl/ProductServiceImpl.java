@@ -5,6 +5,8 @@ import com.sliat.crm.ecommerce.dao.ProductDao;
 import com.sliat.crm.ecommerce.dto.ProductDto;
 import com.sliat.crm.ecommerce.entity.Product;
 import com.sliat.crm.ecommerce.service.ProductService;
+
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -80,6 +82,7 @@ public class ProductServiceImpl implements ProductService {
 
         return null;
     }
+
 
     @Override
     public List<ProductDto> getProductDetail(boolean isSingleProductDetail, Integer productId) {

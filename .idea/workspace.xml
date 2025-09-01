@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
 
-    <list default="true" id="330e40b7-c35b-47aa-a685-67bcd8d7e34b" name="Changes" comment="User access get Product detail API implement" />
+
+    <list default="true" id="330e40b7-c35b-47aa-a685-67bcd8d7e34b" name="Changes" comment="Home Pagination implemented">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/dao/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/service/impl/ProductServiceImpl.java" afterDir="false" />
+
+    </list>
 
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +43,7 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
 
-        <entry key="$PROJECT_DIR$" value="Feature/product_service" />
+        <entry key="$PROJECT_DIR$" value="hotfix/sonar-wirelession" />
 
       </map>
     </option>
@@ -64,18 +72,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
 
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Feature/place__order&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Application.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "Feature/search__product",
+}]]></component>
 
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -264,7 +270,40 @@
       <updated>1756215754168</updated>
     </task>
 
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="User access get Product detail API implement">
+      <option name="closed" value="true" />
+      <created>1756215979151</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1756215979151</updated>
+    </task>
+    <task id="LOCAL-00024" summary="User access get Product detail API implement">
+      <option name="closed" value="true" />
+      <created>1756216017076</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1756216017076</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Sonar issue fixed">
+      <option name="closed" value="true" />
+      <created>1756285385372</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1756285385372</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Home Pagination implemented">
+      <option name="closed" value="true" />
+      <created>1756461993476</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1756461993476</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
+
 
     <servers />
   </component>
@@ -350,7 +389,10 @@
     <MESSAGE value="Place Order API implement" />
     <MESSAGE value="User access get Product detail API implement" />
 
-    <option name="LAST_COMMIT_MESSAGE" value="User access get Product detail API implement" />
+    <MESSAGE value="Sonar issue fixed" />
+    <MESSAGE value="Home Pagination implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Home Pagination implemented" />
+
 
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />

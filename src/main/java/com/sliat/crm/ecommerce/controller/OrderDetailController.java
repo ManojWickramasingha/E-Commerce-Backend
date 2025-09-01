@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
-
-public class OrderDetailController {
 @RequiredArgsConstructor
 public class OrderDetailController {
 
 
     private final OrderDetailService orderDetailService;
+
     @PreAuthorize("hasRole('user')")
     @PostMapping("/placeOrder")
     public void placeOrder(@RequestBody OrderInputDto orderInputDto) {
