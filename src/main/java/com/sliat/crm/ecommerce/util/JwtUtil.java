@@ -3,6 +3,7 @@ package com.sliat.crm.ecommerce.util;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.SignatureException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,7 @@ import java.util.function.Function;
 @Component
 public class JwtUtil {
 
-    private static final String secreatKey = "Manoj_wickramasingha";
+    private static final String SECRETEKEY = "Manoj Wiclramasingha";
     private static final int TOKEN_VALIDAITY = 3600 * 5;
 
     public String getTokenFromUsername(String token) {
@@ -27,7 +28,11 @@ public class JwtUtil {
     }
 
     private Claims getClaimsAllFromToken(String token) {
-        return Jwts.parser().setSigningKey(secreatKey).parseClaimsJws(token).getBody();
+        try {
+            return Jwts.parser().setSigningKey(SECRETEKEY).parseClaimsJws(token).getBody();
+        } catch (SignatureException ex) {
+            throw new RuntimeException("Invalid JWT Signature " + ex);
+        }
     }
 
     public boolean isValidateToken(String token, UserDetails userDetails) {
@@ -36,11 +41,11 @@ public class JwtUtil {
     }
 
     private Boolean isExpired(String token) {
-        Date date = ExpiredFromToken(token);
+        Date date = expiredFromToken(token);
         return date.before(new Date());
     }
 
-    private Date ExpiredFromToken(String token) {
+    private Date expiredFromToken(String token) {
         return getClaimFromToken(token, Claims::getExpiration);
     }
 
@@ -52,7 +57,7 @@ public class JwtUtil {
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + TOKEN_VALIDAITY * 1000))
-                .signWith(SignatureAlgorithm.HS512, secreatKey)
+                .signWith(SignatureAlgorithm.HS512, SECRETEKEY)
                 .compact();
     }
 }

@@ -1,5 +1,7 @@
 package com.sliat.crm.ecommerce.entity;
 
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
 
 public class OrderDetail {
     @Id
@@ -24,6 +27,7 @@ public class OrderDetail {
     @OneToOne
     private User user;
 
+
     public OrderDetail(String fullName, String fullOrder, String contactNumber, String alternateContactNumber, String status, Double amount, Product product, User user) {
         this.fullName = fullName;
         this.fullOrder = fullOrder;
@@ -34,4 +38,5 @@ public class OrderDetail {
         this.product = product;
         this.user = user;
     }
+
 }

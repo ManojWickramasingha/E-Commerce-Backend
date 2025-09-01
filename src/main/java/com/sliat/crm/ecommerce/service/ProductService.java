@@ -8,11 +8,14 @@ public interface ProductService {
 
     ProductDto createNewProduct(ProductDto productData);
 
-    List<ProductDto> getAllProduct();
 
-    void deleteProductDetails(Integer id);
+    List<ProductDto> getAllProduct(Integer pageNumber, String searchKey);
+
+    boolean deleteProductDetails(Integer id);
+
 
     ProductDto getProductDetailById(Integer productId);
 
     List<ProductDto> getProductDetail(boolean isSingleProductDetail, Integer productId);
+
 }

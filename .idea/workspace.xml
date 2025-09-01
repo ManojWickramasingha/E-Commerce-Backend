@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="330e40b7-c35b-47aa-a685-67bcd8d7e34b" name="Changes" comment="User access get Product detail API implement" />
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,10 +34,22 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+
         <entry key="$PROJECT_DIR$" value="Feature/product_service" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/configuration/CorsConfiguration.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/configuration/JwtAuthenticationEntryPoint.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/JwtController.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/OrderDetailController.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/ProductController.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/RoleController.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/controller/UserController.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sliat/crm/ecommerce/exception/GlobalExceptionHandler.java" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -49,6 +63,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
@@ -61,6 +76,7 @@
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
 }</component>
+
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -182,6 +198,7 @@
       <option name="project" value="LOCAL" />
       <updated>1755516731115</updated>
     </task>
+
     <task id="LOCAL-00015" summary="Admin Product API'S Security enable completed and finished product service Feature.">
       <option name="closed" value="true" />
       <created>1755677153350</created>
@@ -246,7 +263,9 @@
       <option name="project" value="LOCAL" />
       <updated>1756215754168</updated>
     </task>
+
     <option name="localTasksCounter" value="23" />
+
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -324,12 +343,15 @@
     <MESSAGE value="get All product API implement without security" />
     <MESSAGE value="Delete product details API implement for hard delete" />
     <MESSAGE value="Get Product Details using Filter ProductId implement API" />
+
     <MESSAGE value="Admin Product API'S Security enable completed and finished product service Feature." />
     <MESSAGE value="get Product all API's disabled security" />
     <MESSAGE value="product entity table change description length" />
     <MESSAGE value="Place Order API implement" />
     <MESSAGE value="User access get Product detail API implement" />
+
     <option name="LAST_COMMIT_MESSAGE" value="User access get Product detail API implement" />
+
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

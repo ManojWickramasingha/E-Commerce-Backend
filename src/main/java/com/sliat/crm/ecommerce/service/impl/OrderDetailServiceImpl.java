@@ -5,52 +5,69 @@ import com.sliat.crm.ecommerce.configuration.JwtRequestFilter;
 import com.sliat.crm.ecommerce.dao.OrderDetailDao;
 import com.sliat.crm.ecommerce.dao.ProductDao;
 import com.sliat.crm.ecommerce.dao.UserDao;
+import com.sliat.crm.ecommerce.dto.OrderDetailDto;
+
 import com.sliat.crm.ecommerce.dto.OrderInputDto;
 import com.sliat.crm.ecommerce.dto.OrderProductQuantity;
 import com.sliat.crm.ecommerce.entity.OrderDetail;
 import com.sliat.crm.ecommerce.entity.Product;
 import com.sliat.crm.ecommerce.entity.User;
 import com.sliat.crm.ecommerce.service.OrderDetailService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class OrderDetailServiceImpl implements OrderDetailService {
 
     private static final String PLACE_ORDER = "Placed";
-    @Autowired
-    private ObjectMapper mapper;
-    @Autowired
-    private ProductDao productDao;
-    @Autowired
-    private UserDao userDao;
-    @Autowired
-    private OrderDetailDao orderDetailDao;
+
+    private final ObjectMapper mapper;
+
+    private final ProductDao productDao;
+
+    private final UserDao userDao;
+
+    private final OrderDetailDao orderDetailDao;
+
+    private final JwtRequestFilter jwtRequestFilter;
+
 
     @Override
     public void placeOrder(OrderInputDto orderInput) {
 
 
-        String current_user = JwtRequestFilter.CURRENT_USER;
+
+        String currentUser = jwtRequestFilter.getCurrentUser();
         List<OrderProductQuantity> orderProductQuantityList = orderInput.getProductQuantityList();
-        User user = userDao.findById(current_user).get();
+        Optional<User> opUser = userDao.findById(currentUser);
+        User user = null;
+
+        if (opUser.isPresent())
+            user = opUser.get();
+
+
         for (OrderProductQuantity o : orderProductQuantityList) {
             Product product = null;
-            if (productDao.findById(o.getProductId()).isPresent()) {
-                product = productDao.findById(o.getProductId()).get();
+            Optional<Product> opProduct = productDao.findById(o.getProductId());
+            if (opProduct.isPresent()) {
+                product = opProduct.get();
 
-                OrderDetail orderDetail = new OrderDetail(
+                OrderDetailDto orderDetailDto = new OrderDetailDto(
                         orderInput.getFullName(),
                         orderInput.getFullAddress(),
                         orderInput.getContactNumber(),
                         orderInput.getAlternateContactNumber(),
                         PLACE_ORDER,
                         product.getActualPrice() * o.getQuantity(),
-                        product,
-                        user
+
+                        user,
+                        product
                 );
+                OrderDetail orderDetail = mapper.convertValue(orderDetailDto, OrderDetail.class);
 
                 orderDetailDao.save(orderDetail);
             }

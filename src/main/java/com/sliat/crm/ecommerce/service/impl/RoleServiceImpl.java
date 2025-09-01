@@ -5,17 +5,17 @@ import com.sliat.crm.ecommerce.dao.RoleDao;
 import com.sliat.crm.ecommerce.dto.RoleDto;
 import com.sliat.crm.ecommerce.entity.Role;
 import com.sliat.crm.ecommerce.service.RoleService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-
+@RequiredArgsConstructor
 public class RoleServiceImpl implements RoleService {
 
-    @Autowired
-    private RoleDao roleDao;
-    @Autowired
-    private ObjectMapper mapper;
+
+    private final RoleDao roleDao;
+
+    private final ObjectMapper mapper;
 
     @Override
     public RoleDto createNewRole(RoleDto roleDto) {
