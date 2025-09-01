@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
 
+
     <list default="true" id="330e40b7-c35b-47aa-a685-67bcd8d7e34b" name="Changes" comment="User access get Product detail API implement" />
+
 
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +37,9 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
 
+
         <entry key="$PROJECT_DIR$" value="Feature/product_service" />
+
 
       </map>
     </option>
@@ -72,7 +76,9 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+
     &quot;git-widget-placeholder&quot;: &quot;Feature/place__order&quot;,
+
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
 }</component>
@@ -264,7 +270,11 @@
       <updated>1756215754168</updated>
     </task>
 
+
     <option name="localTasksCounter" value="23" />
+
+
+
 
     <servers />
   </component>
@@ -342,7 +352,6 @@
     <MESSAGE value="product save api add security" />
     <MESSAGE value="get All product API implement without security" />
     <MESSAGE value="Delete product details API implement for hard delete" />
-    <MESSAGE value="Get Product Details using Filter ProductId implement API" />
 
     <MESSAGE value="Admin Product API'S Security enable completed and finished product service Feature." />
     <MESSAGE value="get Product all API's disabled security" />
@@ -350,7 +359,9 @@
     <MESSAGE value="Place Order API implement" />
     <MESSAGE value="User access get Product detail API implement" />
 
+
     <option name="LAST_COMMIT_MESSAGE" value="User access get Product detail API implement" />
+
 
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />

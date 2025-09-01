@@ -28,15 +28,4 @@ public class OrderDetail {
     private User user;
 
 
-    public OrderDetail(String fullName, String fullOrder, String contactNumber, String alternateContactNumber, String status, Double amount, Product product, User user) {
-        this.fullName = fullName;
-        this.fullOrder = fullOrder;
-        this.contactNumber = contactNumber;
-        this.alternateContactNumber = alternateContactNumber;
-        this.status = status;
-        this.amount = amount;
-        this.product = product;
-        this.user = user;
-    }
-
 }

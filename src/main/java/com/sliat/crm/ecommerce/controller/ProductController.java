@@ -4,9 +4,6 @@ import com.sliat.crm.ecommerce.dto.ProductDto;
 import com.sliat.crm.ecommerce.entity.ImageModel;
 import com.sliat.crm.ecommerce.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -30,8 +27,6 @@ public class ProductController {
 public class ProductController {
 
     private final ProductService productService;
-
-
 
 
     @PreAuthorize("hasRole('admin')")
@@ -69,6 +64,7 @@ public class ProductController {
 
 
 
+
     @GetMapping("/all")
     public ResponseEntity<List<ProductDto>> getAllProduct(@RequestParam(defaultValue = "0") Integer pageNumber, @RequestParam(defaultValue = "") String searchKey) {
         List<ProductDto> allProduct = productService.getAllProduct(pageNumber, searchKey);
@@ -83,11 +79,6 @@ public class ProductController {
     @PreAuthorize("hasRole('admin')")
     @DeleteMapping("/deleteProductDetail/{productId}")
 
-    public void deleteProductDetails(@PathVariable("productId") Integer id) {
-        productService.deleteProductDetails(id);
-    }
-
-
     public ResponseEntity<Boolean> deleteProductDetails(@PathVariable("productId") Integer id) {
 
         if (productService.deleteProductDetails(id)) {
@@ -96,7 +87,6 @@ public class ProductController {
 
         return ResponseEntity.badRequest().body(false);
     }
-
 
 
 

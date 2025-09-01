@@ -8,8 +8,6 @@ import com.sliat.crm.ecommerce.entity.Role;
 import com.sliat.crm.ecommerce.entity.User;
 import com.sliat.crm.ecommerce.service.UserService;
 import lombok.RequiredArgsConstructor;
-
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -28,12 +26,12 @@ public class UserServiceImpl implements UserService {
     private final RoleDao roleDao;
 
 
-    private final PasswordEncoder passwordEncoder;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
   
+
 
     @Override
     public UserDto registerUser(UserDto userData) {
@@ -45,6 +43,7 @@ public class UserServiceImpl implements UserService {
             roles.add(role);
 
         user.setRoles(roles);
+
 
         String password = getEncodePassword(user.getPassword());
         user.setPassword(password);
