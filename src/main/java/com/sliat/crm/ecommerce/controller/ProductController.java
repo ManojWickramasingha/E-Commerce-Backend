@@ -3,9 +3,9 @@ package com.sliat.crm.ecommerce.controller;
 import com.sliat.crm.ecommerce.dto.ProductDto;
 import com.sliat.crm.ecommerce.entity.ImageModel;
 import com.sliat.crm.ecommerce.service.ProductService;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,10 +23,14 @@ import java.util.Set;
 @CrossOrigin
 @Slf4j
 
+public class ProductController {
+
+
 @RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
+
 
 
 
@@ -69,6 +73,7 @@ public class ProductController {
     public ResponseEntity<List<ProductDto>> getAllProduct(@RequestParam(defaultValue = "0") Integer pageNumber, @RequestParam(defaultValue = "") String searchKey) {
         List<ProductDto> allProduct = productService.getAllProduct(pageNumber, searchKey);
 
+
         if (allProduct != null)
             return ResponseEntity.ok(allProduct);
 
@@ -77,6 +82,11 @@ public class ProductController {
 
     @PreAuthorize("hasRole('admin')")
     @DeleteMapping("/deleteProductDetail/{productId}")
+
+    public void deleteProductDetails(@PathVariable("productId") Integer id) {
+        productService.deleteProductDetails(id);
+    }
+
 
     public ResponseEntity<Boolean> deleteProductDetails(@PathVariable("productId") Integer id) {
 
@@ -89,6 +99,7 @@ public class ProductController {
 
 
 
+
     @GetMapping("getProductDetailById/{productId}")
     public ProductDto getProductDetailById(@PathVariable("productId") Integer productId) {
         ProductDto productDto = productService.getProductDetailById(productId);
@@ -97,7 +108,6 @@ public class ProductController {
 
         return null;
     }
-
 
     @PreAuthorize("hasRole('user')")
     @GetMapping("/getProductDetail/{isSingleProductCheckOut}/{productId}")

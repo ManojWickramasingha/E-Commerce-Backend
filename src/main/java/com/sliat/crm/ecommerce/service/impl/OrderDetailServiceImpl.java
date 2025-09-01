@@ -6,6 +6,7 @@ import com.sliat.crm.ecommerce.dao.OrderDetailDao;
 import com.sliat.crm.ecommerce.dao.ProductDao;
 import com.sliat.crm.ecommerce.dao.UserDao;
 import com.sliat.crm.ecommerce.dto.OrderDetailDto;
+
 import com.sliat.crm.ecommerce.dto.OrderInputDto;
 import com.sliat.crm.ecommerce.dto.OrderProductQuantity;
 import com.sliat.crm.ecommerce.entity.OrderDetail;
@@ -34,8 +35,10 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     private final JwtRequestFilter jwtRequestFilter;
 
+
     @Override
     public void placeOrder(OrderInputDto orderInput) {
+
 
 
         String currentUser = jwtRequestFilter.getCurrentUser();
@@ -60,10 +63,12 @@ public class OrderDetailServiceImpl implements OrderDetailService {
                         orderInput.getAlternateContactNumber(),
                         PLACE_ORDER,
                         product.getActualPrice() * o.getQuantity(),
+
                         user,
                         product
                 );
                 OrderDetail orderDetail = mapper.convertValue(orderDetailDto, OrderDetail.class);
+
                 orderDetailDao.save(orderDetail);
             }
         }

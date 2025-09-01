@@ -5,15 +5,14 @@ import com.sliat.crm.ecommerce.dao.ProductDao;
 import com.sliat.crm.ecommerce.dto.ProductDto;
 import com.sliat.crm.ecommerce.entity.Product;
 import com.sliat.crm.ecommerce.service.ProductService;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 
@@ -28,7 +27,6 @@ public class ProductServiceImpl implements ProductService {
     private final ProductDao productDao;
 
 
-
     @Override
     public ProductDto createNewProduct(ProductDto productData) {
         Product product = mapper.convertValue(productData, Product.class);
@@ -37,7 +35,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-
     public List<ProductDto> getAllProduct(Integer pageNumber, String searchKey) {
         List<ProductDto> productDtoList = new ArrayList<>();
         Pageable pageRequest = PageRequest.of(pageNumber, 10);
@@ -57,11 +54,11 @@ public class ProductServiceImpl implements ProductService {
 
         }
 
+
         return productDtoList;
     }
 
     @Override
-
     public boolean deleteProductDetails(Integer id) {
         if (productDao.findById(id).isPresent()) {
             productDao.deleteById(id);
@@ -83,7 +80,6 @@ public class ProductServiceImpl implements ProductService {
 
         return null;
     }
-
 
     @Override
     public List<ProductDto> getProductDetail(boolean isSingleProductDetail, Integer productId) {
