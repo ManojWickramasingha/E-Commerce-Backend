@@ -11,6 +11,9 @@ import com.sliat.crm.ecommerce.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
@@ -36,5 +39,15 @@ public class CartServiceImpl implements CartService {
         }
 
         return save;
+    }
+
+    public List<Cart> getCartDetails() {
+        String currentUser = jwtRequestFilter.getCurrentUser();
+        User user = userDao.findById(currentUser).orElse(null);
+
+        if (user != null)
+            return cartDao.findByUser(user);
+
+        return new ArrayList<>();
     }
 }
