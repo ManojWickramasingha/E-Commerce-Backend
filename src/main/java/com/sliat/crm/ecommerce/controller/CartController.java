@@ -39,4 +39,10 @@ public class CartController {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
+
+    @PreAuthorize("hasRole('user')")
+    @GetMapping("/deleteCartItem/{cartId}")
+    public void deleteCartItem(@PathVariable(name = "cartId") Integer cartId) {
+        cartService.deleteCartItem(cartId);
+    }
 }

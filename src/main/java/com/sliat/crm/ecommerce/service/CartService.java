@@ -9,4 +9,6 @@ public interface CartService {
     Cart addCart(Integer productId);
 
     List<Cart> getCartDetails();
+
+    void deleteCartItem(Integer cartId);
 }

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +31,13 @@ public class CartServiceImpl implements CartService {
         String currentUser = jwtRequestFilter.getCurrentUser();
         User user = userDao.findById(currentUser).orElse(null);
 
+
         if (product != null && user != null) {
+            List<Cart> byUserCartList = cartDao.findByUser(user);
+            List<Cart> filteredList = byUserCartList.stream().filter(x -> x.getProduct().getId() == productId).collect(Collectors.toList());
+            if (filteredList.size() > 0)
+                return null;
+
             Cart newCart = new Cart();
             newCart.setUser(user);
             newCart.setProduct(product);
@@ -49,5 +56,10 @@ public class CartServiceImpl implements CartService {
             return cartDao.findByUser(user);
 
         return new ArrayList<>();
+    }
+
+    @Override
+    public void deleteCartItem(Integer cartId) {
+        cartDao.deleteById(cartId);
     }
 }
