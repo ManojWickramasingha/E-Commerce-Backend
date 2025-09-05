@@ -1,9 +1,14 @@
 package com.sliat.crm.ecommerce.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sliat.crm.ecommerce.configuration.JwtRequestFilter;
+import com.sliat.crm.ecommerce.dao.CartDao;
 import com.sliat.crm.ecommerce.dao.ProductDao;
+import com.sliat.crm.ecommerce.dao.UserDao;
 import com.sliat.crm.ecommerce.dto.ProductDto;
+import com.sliat.crm.ecommerce.entity.Cart;
 import com.sliat.crm.ecommerce.entity.Product;
+import com.sliat.crm.ecommerce.entity.User;
 import com.sliat.crm.ecommerce.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -12,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -23,6 +29,12 @@ public class ProductServiceImpl implements ProductService {
 
 
     private final ProductDao productDao;
+
+    private final JwtRequestFilter jwtRequestFilter;
+
+    private final UserDao userDao;
+
+    private final CartDao cartDao;
 
     @Override
     public ProductDto createNewProduct(ProductDto productData) {
@@ -77,7 +89,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDto> getProductDetail(boolean isSingleProductDetail, Integer productId) {
-        if (isSingleProductDetail) {
+        if (isSingleProductDetail && productId != 0) {
             List<ProductDto> list = new ArrayList<>();
             Product product = productDao.findById(productId).orElse(null);
             if (product != null)
@@ -85,8 +97,14 @@ public class ProductServiceImpl implements ProductService {
 
             return list;
         } else {
-            //check out entire cart
-            //TODO
+            String currentUser = jwtRequestFilter.getCurrentUser();
+            User user = userDao.findById(currentUser).orElse(null);
+            if (user != null) {
+                List<Cart> byUserCartList = cartDao.findByUser(user);
+
+                return byUserCartList.stream().map(x -> mapper.convertValue(x.getProduct(), ProductDto.class)).collect(Collectors.toList());
+            }
+
         }
 
         return new ArrayList<>();
