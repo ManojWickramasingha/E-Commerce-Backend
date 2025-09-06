@@ -94,4 +94,14 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
         return new ArrayList<>();
     }
+
+    @Override
+    public List<OrderDetailDto> getAllOrder() {
+        List<OrderDetailDto> allOrder = new ArrayList<>();
+        orderDetailDao.findAll().forEach(
+                x -> allOrder.add(mapper.convertValue(x, OrderDetailDto.class))
+        );
+
+        return allOrder;
+    }
 }

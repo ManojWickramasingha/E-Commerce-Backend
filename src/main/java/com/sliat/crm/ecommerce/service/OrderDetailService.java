@@ -9,4 +9,6 @@ public interface OrderDetailService {
     void placeOrder(OrderInputDto orderInputDto, boolean isSingleProductCheckOut);
 
     List<OrderDetailDto> getOrderDetails();
+
+    List<OrderDetailDto> getAllOrder();
 }
