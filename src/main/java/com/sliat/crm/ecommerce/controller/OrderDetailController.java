@@ -2,6 +2,7 @@ package com.sliat.crm.ecommerce.controller;
 
 import com.sliat.crm.ecommerce.dto.OrderDetailDto;
 import com.sliat.crm.ecommerce.dto.OrderInputDto;
+import com.sliat.crm.ecommerce.entity.OrderDetail;
 import com.sliat.crm.ecommerce.service.OrderDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -31,7 +32,7 @@ public class OrderDetailController {
 
     @PreAuthorize("hasRole('admin')")
     @GetMapping("/getAllOrder")
-    public List<OrderDetailDto> getAllOrder() {
+    public List<OrderDetail> getAllOrder() {
         return orderDetailService.getAllOrder();
     }
 }
