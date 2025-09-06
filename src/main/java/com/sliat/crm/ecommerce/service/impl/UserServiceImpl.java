@@ -26,11 +26,7 @@ public class UserServiceImpl implements UserService {
     private final RoleDao roleDao;
 
 
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-  
+    private final PasswordEncoder passwordEncoder;
 
 
     @Override
@@ -43,12 +39,8 @@ public class UserServiceImpl implements UserService {
             roles.add(role);
 
         user.setRoles(roles);
-
-
         String password = getEncodePassword(user.getPassword());
         user.setPassword(password);
-
-
         User saveUser = userDao.save(user);
         return mapper.convertValue(saveUser, UserDto.class);
     }

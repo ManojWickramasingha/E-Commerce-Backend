@@ -2,20 +2,20 @@ package com.sliat.crm.ecommerce.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sliat.crm.ecommerce.configuration.JwtRequestFilter;
+import com.sliat.crm.ecommerce.dao.CartDao;
 import com.sliat.crm.ecommerce.dao.OrderDetailDao;
 import com.sliat.crm.ecommerce.dao.ProductDao;
 import com.sliat.crm.ecommerce.dao.UserDao;
 import com.sliat.crm.ecommerce.dto.OrderDetailDto;
-
 import com.sliat.crm.ecommerce.dto.OrderInputDto;
 import com.sliat.crm.ecommerce.dto.OrderProductQuantity;
+import com.sliat.crm.ecommerce.entity.Cart;
 import com.sliat.crm.ecommerce.entity.OrderDetail;
 import com.sliat.crm.ecommerce.entity.Product;
 import com.sliat.crm.ecommerce.entity.User;
 import com.sliat.crm.ecommerce.service.OrderDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -36,8 +36,10 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     private final JwtRequestFilter jwtRequestFilter;
 
 
+    private final CartDao cartDao;
+
     @Override
-    public void placeOrder(OrderInputDto orderInput) {
+    public void placeOrder(OrderInputDto orderInput, boolean isSingleProductCheckOut) {
 
 
 
@@ -63,15 +65,20 @@ public class OrderDetailServiceImpl implements OrderDetailService {
                         orderInput.getAlternateContactNumber(),
                         PLACE_ORDER,
                         product.getActualPrice() * o.getQuantity(),
-
                         user,
                         product
                 );
                 OrderDetail orderDetail = mapper.convertValue(orderDetailDto, OrderDetail.class);
-
                 orderDetailDao.save(orderDetail);
             }
         }
+
+
+        if (!isSingleProductCheckOut) {
+            List<Cart> byUserCartList = cartDao.findByUser(user);
+            byUserCartList.stream().forEach(x -> cartDao.deleteById(x.getId()));
+        }
+
 
     }
 }

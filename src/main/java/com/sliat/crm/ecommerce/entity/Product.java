@@ -16,7 +16,6 @@ public class Product {
     private String name;
 
     @Column(length = 2000)
-
     private String description;
     private Double discountedPrice;
     private Double actualPrice;
