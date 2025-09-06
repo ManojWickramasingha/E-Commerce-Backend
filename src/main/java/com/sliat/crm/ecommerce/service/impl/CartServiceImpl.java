@@ -34,8 +34,8 @@ public class CartServiceImpl implements CartService {
 
         if (product != null && user != null) {
             List<Cart> byUserCartList = cartDao.findByUser(user);
-            List<Cart> filteredList = byUserCartList.stream().filter(x -> x.getProduct().getId() == productId).collect(Collectors.toList());
-            if (filteredList.size() > 0)
+            List<Cart> filteredList = byUserCartList.stream().filter(x -> x.getProduct().getId().equals(productId)).collect(Collectors.toList());
+            if (filteredList.isEmpty())
                 return null;
 
             Cart newCart = new Cart();
