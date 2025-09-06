@@ -16,7 +16,6 @@ import com.sliat.crm.ecommerce.entity.User;
 import com.sliat.crm.ecommerce.service.OrderDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -36,10 +35,12 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     private final JwtRequestFilter jwtRequestFilter;
 
+
     private final CartDao cartDao;
 
     @Override
     public void placeOrder(OrderInputDto orderInput, boolean isSingleProductCheckOut) {
+
 
 
         String currentUser = jwtRequestFilter.getCurrentUser();
@@ -72,10 +73,12 @@ public class OrderDetailServiceImpl implements OrderDetailService {
             }
         }
 
+
         if (!isSingleProductCheckOut) {
             List<Cart> byUserCartList = cartDao.findByUser(user);
             byUserCartList.stream().forEach(x -> cartDao.deleteById(x.getId()));
         }
+
 
     }
 }

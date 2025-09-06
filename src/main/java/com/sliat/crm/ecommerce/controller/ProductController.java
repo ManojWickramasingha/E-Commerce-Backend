@@ -59,9 +59,11 @@ public class ProductController {
     }
 
 
+
     @GetMapping("/all")
     public ResponseEntity<List<ProductDto>> getAllProduct(@RequestParam(defaultValue = "0") Integer pageNumber, @RequestParam(defaultValue = "") String searchKey) {
         List<ProductDto> allProduct = productService.getAllProduct(pageNumber, searchKey);
+
         if (allProduct != null)
             return ResponseEntity.ok(allProduct);
 
@@ -78,6 +80,7 @@ public class ProductController {
 
         return ResponseEntity.badRequest().body(false);
     }
+
 
 
     @GetMapping("getProductDetailById/{productId}")

@@ -28,10 +28,12 @@ public class UserServiceImpl implements UserService {
 
     private final PasswordEncoder passwordEncoder;
 
+
     @Override
     public UserDto registerUser(UserDto userData) {
         User user = mapper.convertValue(userData, User.class);
         Set<Role> roles = new HashSet<>();
+
         Role role = roleDao.findById("user").orElse(null);
         if (role != null)
             roles.add(role);
