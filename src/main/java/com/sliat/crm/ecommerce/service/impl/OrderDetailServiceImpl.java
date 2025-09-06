@@ -17,8 +17,10 @@ import com.sliat.crm.ecommerce.service.OrderDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -77,5 +79,19 @@ public class OrderDetailServiceImpl implements OrderDetailService {
             byUserCartList.stream().forEach(x -> cartDao.deleteById(x.getId()));
         }
 
+    }
+
+    @Override
+    public List<OrderDetailDto> getOrderDetails() {
+
+        String currentUser = jwtRequestFilter.getCurrentUser();
+        User user = userDao.findById(currentUser).orElse(null);
+        if (user != null) {
+            List<OrderDetail> byUserOrderList = orderDetailDao.findByUser(user);
+            return byUserOrderList.stream().map(orderDetail -> mapper.convertValue(orderDetail, OrderDetailDto.class)).collect(Collectors.toList());
+
+        }
+
+        return new ArrayList<>();
     }
 }
