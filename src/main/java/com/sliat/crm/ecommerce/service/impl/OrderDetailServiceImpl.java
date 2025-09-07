@@ -96,11 +96,18 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     }
 
     @Override
-    public List<OrderDetail> getAllOrder() {
+    public List<OrderDetail> getAllOrder(String status) {
         List<OrderDetail> allOrder = new ArrayList<>();
-        orderDetailDao.findAll().forEach(
-                allOrder::add
-        );
+        if (status.equals("All")) {
+            orderDetailDao.findAll().forEach(
+                    allOrder::add
+            );
+        } else {
+            orderDetailDao.findByStatus(status).forEach(
+                    allOrder::add
+            );
+        }
+
 
         return allOrder;
     }

@@ -11,7 +11,7 @@ public interface OrderDetailService {
 
     List<OrderDetailDto> getOrderDetails();
 
-    List<OrderDetail> getAllOrder();
+    List<OrderDetail> getAllOrder(String status);
 
     void markOrderDelivered(Integer orderId);
 }

@@ -9,4 +9,6 @@ import java.util.List;
 public interface OrderDetailDao extends CrudRepository<OrderDetail, Integer> {
 
     List<OrderDetail> findByUser(User user);
+
+    List<OrderDetail> findByStatus(String status);
 }
