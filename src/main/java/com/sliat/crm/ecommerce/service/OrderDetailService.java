@@ -12,4 +12,6 @@ public interface OrderDetailService {
     List<OrderDetailDto> getOrderDetails();
 
     List<OrderDetail> getAllOrder();
+
+    void markOrderDelivered(Integer orderId);
 }

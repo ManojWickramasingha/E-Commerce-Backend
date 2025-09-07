@@ -104,4 +104,14 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
         return allOrder;
     }
+
+    @Override
+    public void markOrderDelivered(Integer orderId) {
+        OrderDetail orderDetail = orderDetailDao.findById(orderId).orElse(null);
+        if (orderDetail != null) {
+            orderDetail.setStatus("Delivered");
+            orderDetailDao.save(orderDetail);
+        }
+
+    }
 }
